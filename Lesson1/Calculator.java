@@ -3,28 +3,21 @@ class Calculator {
 	public static void main (String[] args) {
 		int firstNumber = 11;
 		int secondNumber = 3;
-		char sign = '^';
-		int result = 0;
-		int invalidSign = 0;
+		char sign = '%';
+		
 		// check the sign and make result.
 		if (sign == '+') {
-			result = firstNumber + secondNumber;
+			System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber + secondNumber));
 		} else if (sign == '-') {
-			result = firstNumber - secondNumber;
+			System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber - secondNumber));
 		} else if (sign == '*') {
-			result = firstNumber * secondNumber;
+			System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber * secondNumber));
 		} else if (sign == '/') {
-			result = firstNumber / secondNumber;
+			System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber / secondNumber));
 		} else if (sign == '^') {
-			result = raiseToPower(firstNumber, secondNumber);
+			System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + raiseToPower(firstNumber, secondNumber));
 		} else if (sign == '%') {
-			result = firstNumber % secondNumber;
-		} else {
-			invalidSign = 1;
-		}
-		// print result if sign is ok
-		if (invalidSign == 0) {
-			System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + result);
+			System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber % secondNumber));
 		} else {
 			System.out.println("The operation " + sign + " is invalid.");
 		}
