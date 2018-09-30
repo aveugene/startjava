@@ -1,15 +1,15 @@
 class MyFirstGame {
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		int numberToGuess = 75;
-		int guess = 80;
+		int guessNumber = 80;
 		
 		while (true) {
-			if (guess < numberToGuess) {
+			if (guessNumber < numberToGuess) {
 				System.out.println ("Введенное вами число меньше того, что загадал компьютер");
-				guess ++;
-			} else if (guess > numberToGuess) {
+				guessNumber++;
+			} else if (guessNumber > numberToGuess) {
 				System.out.println ("Введенное вами число больше того, что загадал компьютер");
-				guess --;
+				guessNumber--;
 			} else {
 				System.out.println ("Вы угадали!");
 				break;

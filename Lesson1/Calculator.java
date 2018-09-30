@@ -1,5 +1,5 @@
 class Calculator {
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		int firstNumber = 11;
 		int secondNumber = 3;
 		char sign = '%';
@@ -21,10 +21,10 @@ class Calculator {
 		}
 	}
 	
-	public static int raiseToPower (int base, int exponent){
+	public static int raiseToPower(int base, int exponent) {
 		int result = 1;
-		for (int i = 0; i < exponent; i++){
-			result = result * base;
+		for (int i = 0; i < exponent; i++) {
+			result *= base;
 		}
 		return result;
 	}
