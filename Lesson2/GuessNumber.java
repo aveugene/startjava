@@ -22,9 +22,8 @@ public class GuessNumber {
 
 		while (true) {
 			enterNumber(player1);
-			enterNumber(player2);
-
 			guessPlayer1 = checkNumber(player1);
+			enterNumber(player2);
 			guessPlayer2 = checkNumber(player2);
 
 			if (guessPlayer1 && guessPlayer2) {
@@ -38,8 +37,7 @@ public class GuessNumber {
 				break;
 			} else {
 				System.out.println("Никто не угадал. Будем играть до победного.");
-			}
-			
+			}	
 		}
 	}
 

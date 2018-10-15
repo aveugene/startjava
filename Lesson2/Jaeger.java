@@ -89,6 +89,7 @@ public class Jaeger {
 	public void setArmor(int armor) {
 		this.armor = armor;
 	}
+	
 	public int getArmor() {
 		return armor;
 	}
