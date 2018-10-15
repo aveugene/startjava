@@ -9,6 +9,21 @@ public class Jaeger {
 	private int strength;
 	private int armor;
 
+	public Jaeger(){
+
+	}
+
+	public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, int strength, int armor){
+		setModelName(modelName);
+		setMark(mark);
+		setOrigin(origin);
+		setHeight(height);
+		setWeight(weight);
+		setSpeed(speed);
+		setStrength(strength);
+		setArmor(armor);
+	}
+
 	public void setModelName(String modelName){
 		if (modelName == ""){
 			System.out.println("Model name must not be empty.");
