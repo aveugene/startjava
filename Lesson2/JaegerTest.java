@@ -36,6 +36,5 @@ public class JaegerTest {
 		System.out.println("\nCurrent speed of " + jaegerGipsyDanger.getModelName() + " is " + jaegerGipsyDanger.getSpeed() + "\nUpgrading speed...");
 		jaegerGipsyDanger.setSpeed(jaegerGipsyDanger.getSpeed()+1);
 		System.out.println("Speed upgraded to " + jaegerGipsyDanger.getSpeed());
-
 	}
 }
