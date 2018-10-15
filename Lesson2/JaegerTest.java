@@ -1,41 +1,41 @@
 public class JaegerTest {
 	public static void main(String[] args) {
 
-		Jaeger jaeger1 = new Jaeger("Crimson Typhoon", "Mark-4", "China", 76.2f, 1722f, 9, 8, 6);
+		Jaeger jaegerCrimsonTyphoon = new Jaeger("Crimson Typhoon", "Mark-4", "China", 76.2f, 1722f, 9, 8, 6);
 
-		Jaeger jaeger2 = new Jaeger();
-		jaeger2.setModelName("Gipsy Danger");
-		jaeger2.setMark("Mark-3");
-		jaeger2.setOrigin("USA");
-		jaeger2.setHeight(79.25f);
-		jaeger2.setWeight(1980f);
-		jaeger2.setSpeed(7);
-		jaeger2.setStrength(8);
-		jaeger2.setArmor(6);
+		Jaeger jaegerGipsyDanger = new Jaeger();
+		jaegerGipsyDanger.setModelName("Gipsy Danger");
+		jaegerGipsyDanger.setMark("Mark-3");
+		jaegerGipsyDanger.setOrigin("USA");
+		jaegerGipsyDanger.setHeight(79.25f);
+		jaegerGipsyDanger.setWeight(1980f);
+		jaegerGipsyDanger.setSpeed(7);
+		jaegerGipsyDanger.setStrength(8);
+		jaegerGipsyDanger.setArmor(6);
 
 		System.out.println("Jaeger initialised:");
-		System.out.println("Model: " + jaeger1.getModelName() + "\nMark: " + jaeger1.getMark() + "\nOrigin: " + jaeger1.getOrigin() + "\nHeight: " + jaeger1.getHeight() + "\nWeight: " + jaeger1.getWeight() + "\nSpeed: " + jaeger1.getSpeed() + "\nStrength: " + jaeger1.getStrength() + "\nArmor: " + jaeger1.getArmor() + "\n");
+		System.out.println(jaegerCrimsonTyphoon.toString());
 		
 		System.out.println("Jaeger initialised:");
-		System.out.println("Model: " + jaeger2.getModelName() + "\nMark: " + jaeger2.getMark() + "\nOrigin: " + jaeger2.getOrigin() + "\nHeight: " + jaeger2.getHeight() + "\nWeight: " + jaeger2.getWeight() + "\nSpeed: " + jaeger2.getSpeed() + "\nStrength: " + jaeger2.getStrength() + "\nArmor: " + jaeger2.getArmor() + "\n");
+		System.out.println(jaegerGipsyDanger.toString());
 
 
-		if (jaeger1.drift()) {
-			System.out.println(jaeger1.getModelName() + " is ready to fight Kaiju!");
+		if (jaegerCrimsonTyphoon.drift()) {
+			System.out.println(jaegerCrimsonTyphoon.getModelName() + " is ready to fight Kaiju!");
 		}
-		if (jaeger2.drift()) {
-			System.out.println(jaeger2.getModelName() + " is ready to fight Kaiju!");
+		if (jaegerGipsyDanger.drift()) {
+			System.out.println(jaegerGipsyDanger.getModelName() + " is ready to fight Kaiju!");
 		}
 
-		jaeger1.move();
-		System.out.println(jaeger2.scanKaiju());
+		jaegerCrimsonTyphoon.move();
+		System.out.println(jaegerGipsyDanger.scanKaiju());
 
-		jaeger1.usePlasmacaster();
-		jaeger2.usePlasmacaster();
+		jaegerCrimsonTyphoon.usePlasmacaster();
+		jaegerGipsyDanger.usePlasmacaster();
 
-		System.out.println("\nCurrent speed of " + jaeger2.getModelName() + " is " + jaeger2.getSpeed() + "\nUpgrading speed...");
-		jaeger2.setSpeed(jaeger2.getSpeed()+1);
-		System.out.println("Speed upgraded to " + jaeger2.getSpeed());
+		System.out.println("\nCurrent speed of " + jaegerGipsyDanger.getModelName() + " is " + jaegerGipsyDanger.getSpeed() + "\nUpgrading speed...");
+		jaegerGipsyDanger.setSpeed(jaegerGipsyDanger.getSpeed()+1);
+		System.out.println("Speed upgraded to " + jaegerGipsyDanger.getSpeed());
 
 	}
 }

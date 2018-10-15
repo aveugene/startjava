@@ -3,27 +3,19 @@ class Calculator {
 	private int secondNumber;
 	private char sign;
 
-	public void setFirstNumber(int firstNumber){
-		if (firstNumber>=0){
-			this.firstNumber = firstNumber;
-		}
-		else{
-			System.out.println("Первое число должно быть целым положительным.");
-		}
+	public void setFirstNumber(int firstNumber) {
+		this.firstNumber = firstNumber;
 	}
-	public void setSecondNumber(int secondNumber){
-		if (secondNumber>=0){
-			this.secondNumber = secondNumber;
-		}
-		else{
-			System.out.println("Второе число должно быть целым положительным.");
-		}
+
+	public void setSecondNumber(int secondNumber) {
+		this.secondNumber = secondNumber;
 	}
-	public void setSign(char sign){
+	
+	public void setSign(char sign) {
 		this.sign = sign;
 	}
 
-	public void calculate (){
+	public void calculate() {
 		switch (sign){
 			case '+':
 				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber + secondNumber));
@@ -49,11 +41,11 @@ class Calculator {
 	}
 	
 	private int raiseToPower(int base, int exponent) {
-			int result = 1;
-			for (int i = 0; i < exponent; i++) {
-				result *= base;
-			}
-			return result;
+		int result = 1;
+		for (int i = 0; i < exponent; i++) {
+			result *= base;
+		}
+		return result;
 	}
 
 

@@ -9,106 +9,88 @@ public class Jaeger {
 	private int strength;
 	private int armor;
 
-	public Jaeger(){
-
+	public Jaeger() {
 	}
 
-	public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, int strength, int armor){
-		setModelName(modelName);
-		setMark(mark);
-		setOrigin(origin);
-		setHeight(height);
-		setWeight(weight);
-		setSpeed(speed);
-		setStrength(strength);
-		setArmor(armor);
+	public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, int strength, int armor) {
+		this.modelName = modelName;
+		this.mark = mark;
+		this.origin = origin;
+		this.height = height;
+		this.weight = weight;
+		this.speed = speed;
+		this.strength = strength;
+		this.armor = armor;
 	}
 
-	public void setModelName(String modelName){
-		if (modelName == ""){
+	public void setModelName(String modelName) {
+		if (modelName == "") {
 			System.out.println("Model name must not be empty.");
 		} else {
 			this.modelName = modelName;
 		}
 	}
-	public String getModelName(){
+
+	public String getModelName() {
 		return modelName;
 	}
 
-	public void setMark(String mark){
-		if (mark == ""){
-			System.out.println("Mark must not be empty.");
-		} else {
-			this.mark = mark;
-		}
+	public void setMark(String mark) {
+		this.mark = mark;
 	}
-	public String getMark(){
+
+	public String getMark() {
 		return mark;
 	}
 
-	public void setOrigin(String origin){
-		if (origin == ""){
-			System.out.println("Origin must not be empty.");
-		} else {
-			this.origin = origin;
-		}
+	public void setOrigin(String origin) {
+		this.origin = origin;
 	}
-	public String getOrigin(){
+
+	public String getOrigin() {
 		return origin;
 	}
 
-	public void setHeight(float height){
-		if (height <= 0){
-			System.out.println("Height must be greater than zero.");
-		} else {
-			this.height = height;
-		}
+	public void setHeight(float height) {
+		this.height = height;
 	}
-	public float getHeight(){
+
+	public float getHeight() {
 		return height;
 	}
 
-	public void setWeight(float weight){
-		if (weight <= 0){
-			System.out.println("Weight must be greater than zero.");
-		} else {
-			this.weight = weight;
-		}
+	public void setWeight(float weight) {
+		this.weight = weight;
 	}
-	public float getWeight(){
+
+	public float getWeight() {
 		return weight;
 	}
 
-	public void setSpeed(int speed){
-		if (speed < 1 || speed > 10){
+	public void setSpeed(int speed) {
+		if (speed < 1 || speed > 10) {
 			System.out.println("Speed must be from 1 to 10.");
 		} else {
 			this.speed = speed;
 		}
 	}
-	public int getSpeed(){
+
+	public int getSpeed() {
 		return speed;
 	}
 
-	public void setStrength(int strength){
-		if (strength < 1 || strength > 10){
-			System.out.println("Strength must be from 1 to 10.");
-		} else {
-			this.strength = strength;
-		}
+	public void setStrength(int strength) {
+		this.strength = strength;
 	}
-	public int getStrength(){
+
+	public int getStrength() {
 		return strength;
 	}
 
-	public void setArmor(int armor){
-		if (armor < 1 || armor > 10){
-			System.out.println("Armor must be from 1 to 10.");
-		} else {
-			this.armor = armor;
-		}
+	public void setArmor(int armor) {
+		this.armor = armor;
 	}
-	public int getArmor(){
+	public int getArmor() {
 		return armor;
 	}
 
@@ -125,7 +107,18 @@ public class Jaeger {
 		return "Scanning for Kaiju... Clear.";
 	}
 
-	void usePlasmacaster(){
+	void usePlasmacaster() {
 		System.out.println("Charging... Piu!");
 	}
+
+	public String toString() {
+        return "Model: " + this.modelName + 
+        		"\nMark: " + this.mark + 
+        		"\nOrigin: " + this.origin + 
+        		"\nHeight: " + this.height + 
+        		"\nWeight: " + this.weight + 
+        		"\nSpeed: " + this.speed + 
+        		"\nStrength: " + this.strength + 
+        		"\nArmor: " + this.armor + "\n";
+    }
 }
