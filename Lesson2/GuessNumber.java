@@ -6,6 +6,7 @@ public class GuessNumber {
 	private Player player1;
 	private Player player2;
 	private Scanner scan = new Scanner(System.in);
+	private Random rand = new Random();
 
 	public GuessNumber (Player player1, Player player2) {
 		this.player1 = player1;
@@ -13,26 +14,23 @@ public class GuessNumber {
 	}
 
 	public void startGame() {
-		boolean guessPlayer1;
-		boolean guessPlayer2;
-		Random rand = new Random();
 		guessNumber = rand.nextInt(100);
 		System.out.println("Компьютер: Я загадал число от 0 до 100.");
 		System.out.println("Подсказонька: " + guessNumber);
 
 		while (true) {
 			enterNumber(player1);
-			guessPlayer1 = checkNumber(player1);
+			player1.setIsWin(checkNumber(player1));
 			enterNumber(player2);
-			guessPlayer2 = checkNumber(player2);
+			player2.setIsWin(checkNumber(player2));
 
-			if (guessPlayer1 && guessPlayer2) {
+			if (player1.getIsWin() && player2.getIsWin()) {
 				System.out.println("У нас ничья!!!");
 				break;
-			} else if (guessPlayer1) {
+			} else if (player1.getIsWin()) {
 				System.out.println("Победил первый игрок!");
 				break;
-			} else if (guessPlayer2) {
+			} else if (player2.getIsWin()) {
 				System.out.println("Победил второй игрок!");
 				break;
 			} else {

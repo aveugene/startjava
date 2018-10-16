@@ -1,6 +1,7 @@
 public class Player {
 	private String name;
 	private int number;
+	private boolean isWin;
 
 	public Player(String name) {
 		this.name = name;
@@ -20,5 +21,13 @@ public class Player {
 
 	public int getNumber() {
 		return number;
+	}
+
+	public void setIsWin(boolean isWin) {
+		this.isWin = isWin;
+	}
+
+	public boolean getIsWin() {
+		return isWin;
 	}
 }
