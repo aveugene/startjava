@@ -7,17 +7,24 @@ public class GuessNumber {
 	private int guessNumber;
 	private Player player1;
 	private Player player2;
+	int maxRetries = 10;
 	private Scanner scan = new Scanner(System.in);
 	private Random rand = new Random();
 
-	public GuessNumber (Player player1, Player player2) {
+	public void setupGame() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Введите имя первого игрока: ");
+		Player player1 = new Player(scan.next());
+		System.out.print("Введите имя второго игрока: ");
+		Player player2 = new Player(scan.next());
+		System.out.print("Введите количество попыток: ");
+		this.maxRetries = scan.nextInt();
 		this.player1 = player1;
 		this.player2 = player2;
 	}
 
 	public void startGame() {
 		int retry = 0;
-		int maxRetries = 10;
 		guessNumber = rand.nextInt(100);
 		System.out.println("Компьютер: Я загадал число от 0 до 100.");
 		System.out.println("Подсказонька: " + guessNumber);
