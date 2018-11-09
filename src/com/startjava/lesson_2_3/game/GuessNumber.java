@@ -16,38 +16,52 @@ public class GuessNumber {
 	}
 
 	public void startGame() {
+		int retry = 0;
+		int maxRetries = 10;
 		guessNumber = rand.nextInt(100);
 		System.out.println("Компьютер: Я загадал число от 0 до 100.");
 		System.out.println("Подсказонька: " + guessNumber);
+		System.out.println("У вас " + maxRetries + " попыток.");
 
-		while (true) {
-			enterNumber(player1);
-			player1.setIsWin(checkNumber(player1));
-			enterNumber(player2);
-			player2.setIsWin(checkNumber(player2));
+		while (retry < maxRetries) {
+			enterNumber(player1, retry);
+			player1.setIsWin(checkNumber(player1, retry));
+			enterNumber(player2, retry);
+			player2.setIsWin(checkNumber(player2, retry));
 
 			if (player1.getIsWin() && player2.getIsWin()) {
-				System.out.println("У нас ничья!!!");
+				System.out.println("У нас ничья!!! Оба игрока угадали с " + (retry + 1) + " попытки");
 				break;
 			} else if (player1.getIsWin()) {
-				System.out.println("Победил первый игрок!");
+				player1.winMessage(guessNumber, retry);
 				break;
 			} else if (player2.getIsWin()) {
-				System.out.println("Победил второй игрок!");
+				player2.winMessage(guessNumber, retry);
 				break;
 			} else {
-				System.out.println("Никто не угадал. Будем играть до победного.");
-			}	
+				if (retry == maxRetries-1) {
+					System.out.println("У " + player1.getName() + " закончились попытки");
+					System.out.println("У " + player2.getName() + " закончились попытки");
+					break;
+				} else {
+					System.out.println("Никто не угадал. Осталось " + (maxRetries - retry -1) + " попыток.");
+				}
+			}
+			retry ++;
 		}
+		player1.printGuessedNumbers(retry);
+		player2.printGuessedNumbers(retry);
+		player1.zeroize(retry);
+		player2.zeroize(retry);
 	}
 
-	private void enterNumber(Player player) {
+	private void enterNumber(Player player, int index) {
 		System.out.print(player.getName() + ", введите число: ");
-		player.setNumber(scan.nextInt());
+		player.setNumber(index, scan.nextInt());
 	}
 
-	private boolean checkNumber(Player player) {
-		if (player.getNumber() == guessNumber) {
+	private boolean checkNumber(Player player, int index) {
+		if (player.getNumber(index) == guessNumber) {
 			return true;
 		} else {
 			return false;
