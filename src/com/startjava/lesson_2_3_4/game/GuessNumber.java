@@ -22,7 +22,7 @@ public class GuessNumber {
 		attempt = 0;
 		computerGenerateRandomNumber();
 		while (attempt < maxAttempts) {
-			playersEnterNumber(attempt);
+			playersEnterNumber();
 
 			if (playersCheckBoth()) {
 				break;
@@ -53,16 +53,16 @@ public class GuessNumber {
 		System.out.println("У вас " + maxAttempts + " попыток.");
 	}
 
-	private void playersEnterNumber(int attempt) {
-		enterNumber(player1, attempt);
+	private void playersEnterNumber() {
+		enterNumber(player1);
 		player1.setIsWin(checkNumber(player1, attempt));
-		enterNumber(player2, attempt);
+		enterNumber(player2);
 		player2.setIsWin(checkNumber(player2, attempt));
 	}
 
-	private void enterNumber(Player player, int index) {
+	private void enterNumber(Player player) {
 		System.out.print(player.getName() + ", введите число: ");
-		player.setNumber(index, scan.nextInt());
+		player.setNumber(attempt, scan.nextInt());
 	}
 
 	private boolean checkNumber(Player player, int index) {
