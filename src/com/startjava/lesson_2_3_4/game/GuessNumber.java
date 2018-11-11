@@ -24,11 +24,11 @@ public class GuessNumber {
 		while (attempt < maxAttempts) {
 			playersEnterNumber();
 
-			if (playersCheckBoth()) {
+			if (isBothPlayersWin()) {
 				break;
-			} else if (playersCheckOne(player1)) {
+			} else if (isOnePlayerWin(player1)) {
 				break;
-			} else if (playersCheckOne(player2)) {
+			} else if (isOnePlayerWin(player2)) {
 				break;
 			} else {
 				if (attempt == maxAttempts-1) {
@@ -66,14 +66,10 @@ public class GuessNumber {
 	}
 
 	private boolean checkNumber(Player player, int index) {
-		if (player.getNumber(index) == guessNumber) {
-			return true;
-		} else {
-			return false;
-		}
+		return (player.getNumber(index) == guessNumber);
 	}
 
-	private boolean playersCheckBoth() {
+	private boolean isBothPlayersWin() {
 		if (player1.getIsWin() && player2.getIsWin()) {
 			System.out.println("У нас ничья!!! Оба игрока угадали с " + (attempt + 1) + " попытки");
 			return true;
@@ -81,7 +77,7 @@ public class GuessNumber {
 		return false;
 	}
 
-	private boolean playersCheckOne(Player player) {
+	private boolean isOnePlayerWin(Player player) {
 		if (player.getIsWin()) {
 			player.winMessage(guessNumber, attempt);
 			return true;
