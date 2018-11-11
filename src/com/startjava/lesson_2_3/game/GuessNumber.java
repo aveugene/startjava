@@ -7,72 +7,50 @@ public class GuessNumber {
 	private int guessNumber;
 	private Player player1;
 	private Player player2;
-	int maxRetries = 10;
 	private Scanner scan = new Scanner(System.in);
 	private Random rand = new Random();
 
-	public void setupGame() {
-		Scanner scan = new Scanner(System.in);
-		System.out.print("Введите имя первого игрока: ");
-		Player player1 = new Player(scan.next());
-		System.out.print("Введите имя второго игрока: ");
-		Player player2 = new Player(scan.next());
-		System.out.print("Введите количество попыток: ");
-		this.maxRetries = scan.nextInt();
+	public GuessNumber (Player player1, Player player2) {
 		this.player1 = player1;
 		this.player2 = player2;
 	}
 
 	public void startGame() {
-		int retry = 0;
 		guessNumber = rand.nextInt(100);
 		System.out.println("Компьютер: Я загадал число от 0 до 100.");
 		System.out.println("Подсказонька: " + guessNumber);
-		System.out.println("У вас " + maxRetries + " попыток.");
 
-		while (retry < maxRetries) {
-			enterNumber(player1, retry);
-			player1.setIsWin(checkNumber(player1, retry));
-			enterNumber(player2, retry);
-			player2.setIsWin(checkNumber(player2, retry));
+		while (true) {
+			enterNumber(player1);
+			player1.setIsWin(checkNumber(player1));
+			enterNumber(player2);
+			player2.setIsWin(checkNumber(player2));
 
 			if (player1.getIsWin() && player2.getIsWin()) {
-				System.out.println("У нас ничья!!! Оба игрока угадали с " + (retry + 1) + " попытки");
+				System.out.println("У нас ничья!!!");
 				break;
 			} else if (player1.getIsWin()) {
-				player1.winMessage(guessNumber, retry);
+				System.out.println("Победил первый игрок!");
 				break;
 			} else if (player2.getIsWin()) {
-				player2.winMessage(guessNumber, retry);
+				System.out.println("Победил второй игрок!");
 				break;
 			} else {
-				if (retry == maxRetries-1) {
-					System.out.println("У " + player1.getName() + " закончились попытки");
-					System.out.println("У " + player2.getName() + " закончились попытки");
-					break;
-				} else {
-					System.out.println("Никто не угадал. Осталось " + (maxRetries - retry -1) + " попыток.");
-				}
+				System.out.println("Никто не угадал. Будем играть до победного.");
 			}
-			retry ++;
 		}
-		player1.printGuessedNumbers(retry);
-		player2.printGuessedNumbers(retry);
-		player1.zeroize(retry);
-		player2.zeroize(retry);
 	}
 
-	private void enterNumber(Player player, int index) {
+	private void enterNumber(Player player) {
 		System.out.print(player.getName() + ", введите число: ");
-		player.setNumber(index, scan.nextInt());
+		player.setNumber(scan.nextInt());
 	}
 
-	private boolean checkNumber(Player player, int index) {
-		if (player.getNumber(index) == guessNumber) {
+	private boolean checkNumber(Player player) {
+		if (player.getNumber() == guessNumber) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 }
-

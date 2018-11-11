@@ -18,21 +18,21 @@ class Calculator {
 	}
 
 	public void calculate() {
-		switch (sign) {
+		switch (sign){
 			case '+':
-				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + Math.addExact(firstNumber, secondNumber));
+				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber + secondNumber));
 				break;
 			case '-':
-				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + Math.subtractExact(firstNumber, secondNumber));
+				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber - secondNumber));
 				break;
 			case '*':
-				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + Math.multiplyExact(firstNumber, secondNumber));
+				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber * secondNumber));
 				break;
 			case '/':
-				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + Math.floorDiv(firstNumber, secondNumber));
+				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber / secondNumber));
 				break;
 			case '^':
-				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (int) Math.pow(firstNumber, secondNumber));
+				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + raiseToPower(firstNumber, secondNumber));
 				break;
 			case '%':
 				System.out.println(firstNumber + "" + sign + "" + secondNumber + "=" + (firstNumber % secondNumber));
@@ -40,5 +40,13 @@ class Calculator {
 			default:
 				System.out.println("The operation " + sign + " is invalid.");
 		}
+	}
+
+	private int raiseToPower(int base, int exponent) {
+		int result = 1;
+		for (int i = 0; i < exponent; i++) {
+			result *= base;
+		}
+		return result;
 	}
 }

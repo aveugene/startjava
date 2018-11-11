@@ -1,12 +1,9 @@
 package com.startjava.lesson_2_3.game;
 
-import java.util.Arrays;
-
 public class Player {
 	private String name;
+	private int number;
 	private boolean isWin;
-	private int[] guessedNumbers = new int[10];
-
 
 	public Player(String name) {
 		this.name = name;
@@ -20,40 +17,19 @@ public class Player {
 		return name;
 	}
 
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
 	public void setIsWin(boolean isWin) {
 		this.isWin = isWin;
 	}
 
 	public boolean getIsWin() {
 		return isWin;
-	}
-
-	public void setNumber(int index, int number) {
-		this.guessedNumbers[index] = number;
-	}
-
-	public int getNumber(int index) {
-		return guessedNumbers[index];
-	}
-
-	public void printGuessedNumbers(int newLength) {
-		int[] guessedNumbersToPrint = Arrays.copyOf(guessedNumbers, newLength+1);
-		System.out.println("Названные " + name + " числа: " + printArrayInLine(guessedNumbersToPrint));
-	}
-
-	private StringBuilder printArrayInLine(int[] arrayToPrint) {
-		StringBuilder line = new StringBuilder("");
-		for (int number : arrayToPrint) {
-			line.append(number + " ");
-		}
-		return line;
-	}
-
-	public void winMessage(int guessNumber, int retry) {
-		System.out.println("Игрок " + name + " угадал число " + guessNumber + " с " + (retry + 1) + " попытки");
-	}
-
-	public void zeroize(int index) {
-		Arrays.fill(guessedNumbers,0,index+1,0);
 	}
 }
